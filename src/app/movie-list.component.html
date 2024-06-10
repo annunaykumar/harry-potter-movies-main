@@ -22,7 +22,7 @@
           <p class="mb-0">Budget: {{ formatCurrency(movie.budget) }}</p>
           <p class="mb-0">Duration: {{ formatDuration(movie.duration) }}</p>
         </div>
-        <a [id]="movie.id" class="btn btn-primary" [routerLink]="['/movies', movie.id]">Details</a>
+        <a [id]="movie.id" class="btn btn-success" [routerLink]="['/movies', movie.id]">Details</a>
       </div>
     </li>
   </ul>
