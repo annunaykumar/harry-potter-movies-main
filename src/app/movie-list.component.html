@@ -1,0 +1,29 @@
+<!-- Include Bootstrap CSS in your index.html or equivalent -->
+
+<div class="container mt-4">
+  <div class="row mb-3">
+    <h3>Filters</h3>
+    <div class="col-md-6">
+      <label for="titleFilter">Title</label>
+      <input type="text" class="form-control" id="titleFilter" [(ngModel)]="titleFilter">
+    </div>
+    <div class="col-md-6">
+      <label for="yearFilter">Release Year</label>
+      <input type="text" class="form-control" id="yearFilter" [(ngModel)]="yearFilter">
+    </div>
+  </div>
+
+  <ul class="list-unstyled">
+    <li *ngFor="let movie of filteredMovies()" class="mb-3 p-3 border rounded">
+      <h2 class="h4">{{ movie.title }}</h2>
+      <div class="d-flex justify-content-between align-items-center">
+        <div class="d-flex flex-column flex-md-row gap-3">
+          <p class="mb-0">Release Date: {{ movie.release_date | date }}</p>
+          <p class="mb-0">Budget: {{ formatCurrency(movie.budget) }}</p>
+          <p class="mb-0">Duration: {{ formatDuration(movie.duration) }}</p>
+        </div>
+        <a [id]="movie.id" class="btn btn-primary" [routerLink]="['/movies', movie.id]">Details</a>
+      </div>
+    </li>
+  </ul>
+</div>
